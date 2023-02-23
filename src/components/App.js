@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import ShoppingList from "./ShoppingList";
 import itemData from "../data/items";
+import Formcomponent from "./form";
 
 function App() {
   const [indarkmode, setindarkmode] = useState(false)
+  const [foodlist, setfoodlist] = useState(itemData)
   // replace 'false' with a state variable that can be toggled between true and false
   // this will be used for the Dark Mode Toggle feature
   function handleclick(){
@@ -19,7 +21,8 @@ function App() {
         <h2>Shopster</h2>
         <button onClick={handleclick}>{ButtonName}</button>
       </header>
-      <ShoppingList items={itemData} />
+      <ShoppingList items={foodlist} />
+      <Formcomponent foodlist = {foodlist} setfoodlist = {setfoodlist}/>
     </div>
   );
 }
